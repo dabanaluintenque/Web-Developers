@@ -1,0 +1,20 @@
+#title{
+    text-align: center;
+    font-family: fantasy;
+    font-size: 55;
+    color: cornflowerblue;
+  }
+  .messagedisplayed{
+      text-align: center;
+
+  }
+  .img-timespan{
+    width: 300px;
+    height: 200px;
+    top: 10px;
+    left: 40px;
+    right: 120px;
+    border: 10px solid white;
+  }
+  
+ 
