@@ -1,0 +1,68 @@
+h2 {
+    text-align: center;
+    color: #2c5294;
+    border: 2px solid;
+    border-style: inset;
+    font-family: Trattatello, fantasy;
+  }
+  
+  h6 {
+    text-align: center;
+    color: #2c5294;
+    font-family: Book Antiqua;
+  }
+  
+  label {
+      font-family: Coronet script;
+  }
+  
+  #firstTwoVid {
+      background-color: black;
+  }
+  
+  #secondTwoVid {
+      background-color: #2c5294;
+  }
+  
+  input[type="text"]::placeholder {
+    text-align: center;
+    font-family: Coronet script;
+  }
+  
+  input[type="password"]::placeholder {
+    text-align: center;
+    font-family: Coronet script;
+  }
+  
+  input[type="search"]::placeholder {
+    text-align: center;
+    font-family: Coronet script;
+  }
+  
+  a:link {
+    text-decoration: none;
+  }
+  
+  a:visited {
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: none;
+  }
+  
+  a:active {
+    text-decoration: none;
+  }
+  
+  /*.forgetButton {
+      background-color: #2c5294;
+  }*/
+  
+  .col {
+    text-align: center;
+  }
+  
+  .form-signin {
+    text-align: center;
+  }
