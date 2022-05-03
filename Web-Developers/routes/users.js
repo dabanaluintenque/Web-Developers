@@ -52,7 +52,7 @@ function loggedIn(req, res,next){
 
   if(req.user){
 
-    next(); // req.user exists, go to the next page o
+    next(); // req.user exists, go to the next page
   }
   else{
 
@@ -150,9 +150,13 @@ router.post('/login',
 
   
 function nextBirtday(){
+
+  let test = document.getElementByI('example1');
    const allWeeks=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
   
    let currentDayOfWeek = returnMonthsInstance.getDay();
+
+  
 
    if(dob.getMonth()>returnMonthsInstance.getMonth()){
 
@@ -181,7 +185,7 @@ function nextBirtday(){
 
     return allWeeks[result.toFixed(0)];
     
-   }
+   } 
 
 }
  function userBirthdayInfo(){
@@ -527,6 +531,108 @@ router.post('/Info', function(req, res, nex){
 
 res.redirect('/users/Info?name=Fullname: '+fullname);
 });
+
+
+// localhost timeManagement get
+
+router.get('/TimeManagement', function(req, res, next){
+
+res.sendFile(path.join(__dirname,'..','public','TimeManagement.html'));
+});
+
+/*function newDate(req, res, next){
+
+  //var salt = bcrypt.genSaltSync(10);
+  //var screentime= (req.body.password);
+
+  client.query('INSERT INTO userstime (username,day,screentime,workout,reading,selfcare,sleep,pray,fun,work) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)',[ req.body.username,req.body.day, req.body.screentime,req.body.workout,req.body.reading,req.body.selfcare,req.body.sleep,req.body.pray,req.body.fun,req.body.work], function(err, result){
+
+    if(err){
+
+    console.log('query insert error');
+    return next(err);
+    }
+    console.log('Got it')
+    res.redirect('/users/timeoverView?message="Thank+you+for+share+your+time+with+us!');
+  });
+} 
+*/
+
+
+// post TimeManagement
+
+router.post('/TimeManagement', function(req, res, next){
+
+  client.query('SELECT * FROM userstime WHERE username=$1',[req.body.username], function(err, result){
+
+    if(err){
+
+      console.log('sql err');
+      next(err);
+    }
+   if(result.rows.length > 0){
+     client.query('INSERT INTO userstime (username,day,screentime,workout,reading,selfcare,sleep,pray,fun,work) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)',[ req.body.username,req.body.day, req.body.screentime,req.body.workout,req.body.reading,req.body.selfcare,req.body.sleep,req.body.pray,req.body.fun,req.body.work], function(err, result){
+      
+      if(err){
+
+        console.log('unable to INSERT');
+        next(err);
+      }
+      console.log('Got it')
+    res.redirect('/users/timeoverView?message="Thank+you+for+share+your+time+with+us!');
+     
+    //console.log('created in the database');
+    //  newDate(req, res, next);
+    });
+  }
+    else{
+  
+     console.log('user does not exist');
+     res.redirect('/users/TimeManagement?message=user+does+not+exist');
+    }
+  });
+});
+
+
+// localhost time overview get
+
+router.get('/timeoverView', function(req, res, next){
+
+  res.sendFile(path.join(__dirname,'..','public','timeoverView.html'));
+});
+
+router.get('/timeoverViewOut', function(req, res, next){
+
+  client.query('SELECT * FROM userstime  WHERE username=$1', [req.user.username], function(err, result){
+  
+  //client.query('SELECT * FROM userstime ', function(err, result){
+
+    if(err){
+
+      console.log('users sql error');
+      next(err);
+    }
+    else if( result.rows.length > 0){
+      console.log(' dates exist');
+      res.json(result.rows);
+     
+    }
+    else{
+      console.log('There not record with this date');
+
+      let username = req.user.username;
+      res.redirect('/users/timeoverView?message='+username+'Not in the Database');
+    }
+  });
+});
 // end 
+
+
+function dab(){
+
+
+  return   document.getElementById('example1').innerHTML ='DDDDD' 
+ 
+}
 
 module.exports = router;

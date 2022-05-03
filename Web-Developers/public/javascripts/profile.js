@@ -18,5 +18,5 @@ if(message){
 
         document.getElementById('message')
     );
-}
+} 
 
