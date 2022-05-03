@@ -52,7 +52,7 @@ function loggedIn(req, res,next){
 
   if(req.user){
 
-    next(); // req.user exists, go to the next page
+    next(); // req.user exists, go to the next page o
   }
   else{
 
