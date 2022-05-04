@@ -579,7 +579,7 @@ router.post('/TimeManagement', function(req, res, next){
         next(err);
       }
       console.log('Got it')
-    res.redirect('/users/timeoverView?message="Thank+you+for+share+your+time+with+us!');
+    res.redirect('/users/TimeManagement?message="Thank+you+for+share+your+time+with+us!');
      
     //console.log('created in the database');
     //  newDate(req, res, next);
@@ -596,6 +596,7 @@ router.post('/TimeManagement', function(req, res, next){
 
 // localhost time overview get
 
+/*
 router.get('/timeoverView', function(req, res, next){
 
   res.sendFile(path.join(__dirname,'..','public','timeoverView.html'));
@@ -625,14 +626,7 @@ router.get('/timeoverViewOut', function(req, res, next){
     }
   });
 });
-// end 
+// end */
 
-
-function dab(){
-
-
-  return   document.getElementById('example1').innerHTML ='DDDDD' 
- 
-}
 
 module.exports = router;
