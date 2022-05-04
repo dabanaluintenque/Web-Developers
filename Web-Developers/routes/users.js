@@ -38,7 +38,7 @@ client.connect();
 
 var passport = require('passport');
 var bcrypt = require('bcryptjs');
-const { user } = require('pg/lib/defaults');
+//const { user } = require('pg/lib/defaults');
 
 router.get('/logout', function(req, res){
 
@@ -571,7 +571,7 @@ router.post('/TimeManagement', function(req, res, next){
       next(err);
     }
    if(result.rows.length > 0){
-     client.query('INSERT INTO userstime (username,day,screentime,workout,reading,selfcare,sleep,pray,fun,work) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)',[ req.body.username,req.body.day, req.body.screentime,req.body.workout,req.body.reading,req.body.selfcare,req.body.sleep,req.body.pray,req.body.fun,req.body.work], function(err, result){
+     client.query('INSERT INTO userstime (username,day,screentime,workout,reading,selfcare,sleep,pray,fun,work, description) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11)',[ req.body.username,req.body.day, req.body.screentime,req.body.workout,req.body.reading,req.body.selfcare,req.body.sleep,req.body.pray,req.body.fun,req.body.work, req.body.description], function(err, result){
       
       if(err){
 
