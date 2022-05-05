@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Time Management</title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/time.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
@@ -16,90 +16,93 @@
 
     <div class="container">
 
-        <div class="row">
+        <div class="row head">
 
             <div class="col">
 
                 <strong>
                     <p id="name"></p>
                 </strong>
+                <script>
 
-                <br>
-                <!-- <script>
-                    const urlParams = new URLSearchParams(window.location.search);
+                </script>
 
-                    const name = urlParams.get('name');
-
-                    if (name) {
-
-                        document.getElementById('name').innerHTML = name;
-                    }
-                </script>-->
-
-
-                <p> Hello "Name" Please Enter Your Best Guess to see how wisely you spend your time. <br>
+                <h6> Hello please Enter Your Best Guess to see how wisely you spend your time. <br>
                     You can come back each day to see how
-                    your time management is!</p>
+                    your time management is!</h6>
+            </div>
+
+            <div class="col">
+                <h6 id="quote">
+                    The key is not to prioritize what's on your schedule,
+                    but to schedule your priorities. -Stephen Covey
+                </h6>
             </div>
         </div>
 
         <div class="row">
 
-            <div class="col">
-
+            <div class="col list">
 
                 <form method="post" action="TimeManagement">
 
                     <div id="message"></div>
 
-                    <label>Username:</label>
-                    <input type="text" name="username" required autofocus><br>
-                    <label>Date:</label>
+                    <br><label style="float:left; width: 200px;">Username:</label>
+                    <input type="text" name="username" required autofocus><br><br>
+                    <label style="float:left; width: 200px;">Date:</label>
                     <input type="date" name="day" required><br><br>
-                    <label>Screen Time:</label>
-                    <input type="text" name="screentime" placeholder="screentime" required> <br><br>
-                    <label>Work Out Time:</label>
+                    <label style="float:left; width: 200px;">Screen Time:</label>
+                    <input type="text" name="screentime" placeholder="screen time" required> <br><br>
+                    <label style="float:left; width: 200px;">Work Out Time:</label>
                     <input type="text" name="workout" placeholder="work out" required><br><br>
-                    <label>Reading/Learning Time:</label>
-                    <input type="text" name="reading" placeholder="reading Time" required><br><br>
-                    <label>Self-Care/Hygiene:</label>
-                    <input type="text" name="selfcare" placeholder="selfcare" required><br><br>
-                    <label>Sleep:</label>
+                    <label style="float:left; width: 200px;">Reading/Learning Time:</label>
+                    <input type="text" name="reading" placeholder="reading time" required><br><br>
+                    <label style="float:left; width: 200px;">Self-Care/Hygiene:</label>
+                    <input type="text" name="selfcare" placeholder="self-care" required><br><br>
+                    <label style="float:left; width: 200px;">Sleep:</label>
                     <input type="text" name="sleep" placeholder="sleep" required><br><br>
-                    <label>pray:</label>
+                    <label style="float:left; width: 200px;">pray:</label>
                     <input type="text" name="pray" placeholder="pray" required><br><br>
-                    <label>Fun:</label>
+                    <label style="float:left; width: 200px;">Fun:</label>
                     <input type="text" name="fun" placeholder="fun" required><br><br>
-                    <label>Work/Employment:</label>
+                    <label style="float:left; width: 200px;">Work/Employment:</label>
                     <input type="text" name="work" placeholder="work" required><br><br>
-                    <label>Description of today:</label>
+                    <label style="float:left; width: 200px;">Description of today:</label>
                     <textarea name="description"
                         placeholder="Please enter a short description of how you spent your day"></textarea><br><br>
-
-                    <input type="submit" value="Enter" id="submit">
-                    <input type="reset" id="reset">
+                    <input id="submitButton" type="submit" value="Enter" id="submit">
+                    &nbsp;&nbsp;&nbsp;
+                    <input id="resetButton" type="reset" id="reset">
 
                 </form>
             </div>
 
 
 
-            <div class="col">
+            <div class="col box">
 
-                <p> Description of today: Please enter a short description of how you spent your day. (Max: 350 Words)
-                </p>
 
-                <p> How you spend your time.</p>
 
-                <form method="post" action="timeoverView">
 
+                <p> Please enter your username to see how you spend your time.</p>
+
+                <form method="post" action="timeoverView" style="text-align: center;">
                     <label>Username</label>
                     <input type="text" name="username" placeholder>
                     <input type="submit" value="Enter">
                 </form>
+                <div>
+                    <img id="photo" width=400px; src="/images/ella.jpg" alt="QuoteHere"><br><br>
+                </div>
+                <div>
+                    <img id="photo" width=400px; src="/images/easyLife.jpg" alt="QuoteHere"><br><br>
+                </div>
             </div>
+
+
         </div>
-        <a href="/">Back to home page:</a>
+        <a href="/">Back to home page</a>
 
     </div>
     <script src="/javascripts/TimeManagement.js" type="text/babel"></script>

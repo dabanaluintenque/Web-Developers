@@ -1,20 +1,63 @@
 #title{
     text-align: center;
-    font-family: fantasy;
+    font-family: monospace;
     font-size: 55;
     color: cornflowerblue;
   }
-  .messagedisplayed{
+  .myprofilelink{
       text-align: center;
-
+      font-size: 22px;
+      font-family: monospace;
   }
-  .img-timespan{
-    width: 300px;
-    height: 200px;
-    top: 10px;
-    left: 40px;
-    right: 120px;
-    border: 10px solid white;
+
+  .menu{
+    text-align: left;
+    font-size: 22px;
+    font-family: monospace;
   }
   
+ .timespan{
+  width: 400px;
+  height: 300px;
+  left:40px;
+  top: 100px;
+  right: 140px;
+  border: 10px solid white;
+ }
+ .container{
+  background-color: white;
+}
+.ifnotnow{
+  width: 400px;
+  height: 300px;
+  left:40px;
+  top: 100px;
+  right: 140px;
+  border: 10px solid white;
+}
+.management{
+  width: 400px;
+  height: 300px;
+  left:40px;
+  top: 100px;
+  right: 140px;
+  border: 10px solid white;
+}
+.timeman{
+  width: 400px;
+  height: 300px;
+  left:40px;
+  top: 100px;
+  right: 140px;
+  }
+  #firstVideo{
+    
+    height:400px; 
+    width:400px;
+  }
+
+  .almost{
+    font-size: 20px;
+    font-family: monospace;
+  }
  

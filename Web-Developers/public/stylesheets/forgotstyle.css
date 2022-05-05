@@ -1,0 +1,45 @@
+h2 {
+  text-align: center;
+  color: #0275d8;;
+  border: 2px solid;
+  border-style: inset;
+  font-family: Trattatello, fantasy;
+  background-color: white;
+}
+
+#photo {
+  border: black;
+  border-style: solid;
+}
+
+#topPassImage {
+  margin-left: 164px;
+}
+
+#submitButton {
+  margin-left: 25px;
+}
+
+#resetButton {
+  margin-left: 45px;
+}
+
+h6 {
+  text-align: center;
+  color: #0275d8;
+  font-family: Book Antiqua;
+}
+
+label {
+    font-family: Coronet script;
+}
+
+input[type="text"]::placeholder {
+  text-align: center;
+  font-family: Coronet script;
+}
+
+input[type="password"]::placeholder {
+  text-align: center;
+  font-family: Coronet script;
+}

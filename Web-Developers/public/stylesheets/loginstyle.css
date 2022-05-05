@@ -1,6 +1,6 @@
 h2 {
     text-align: center;
-    color: #2c5294;
+    color: #0275d8;
     border: 2px solid;
     border-style: inset;
     font-family: Trattatello, fantasy;
@@ -8,8 +8,18 @@ h2 {
   
   h6 {
     text-align: center;
-    color: #2c5294;
+    color: #0275d8;
     font-family: Book Antiqua;
+  }
+
+  #quotes {
+    color: black;
+    border: black;
+    border-style: solid;
+  }
+
+  #hugVideo {
+    border: black;
   }
   
   label {

@@ -1,0 +1,65 @@
+.box {
+    border: black;
+    border-style: solid;
+    background-color: #ADD8E6;
+    /*height: 200px;*/
+}
+
+form {
+    clear: both;
+}
+
+.container {
+
+}
+
+#photo {
+    margin-left: 50px;
+    border: black 3px;
+    border-style: solid;
+}
+
+#submitButton {
+    background-color: #0275d8;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    float:left; 
+    width: 200px;
+}
+
+#resetButton {
+    background-color: #0275d8;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+}
+
+.list {
+    border: black;
+    border-style: solid;
+    background-color: white;
+}
+
+#quote {
+    border: black;
+    border-style: solid;
+    background-color: #ADD8E6;
+    margin-top: 20px;
+}
+
+input[type="text"]::placeholder {
+    text-align: center;
+    font-family: Coronet script;
+  }
+  
+  input[type="date"]::placeholder {
+    text-align: center;
+    font-family: Coronet script;
+  }
+  
+  input[type="search"]::placeholder {
+    text-align: center;
+    font-family: Coronet script;
+  }
+

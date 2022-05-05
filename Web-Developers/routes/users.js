@@ -419,7 +419,7 @@ else if(dob.getMonth()===currentYear.getMonth() && dob.getDate()===currentYear.g
    res.redirect('/users/profile?name=Hey '+ fullname+' according to your birthday date\
   . '+dob +'<br> You are '+userYears()+'  years old <br> You have been alive for approximately: <br> '+ userMonths()+' months,\
      <br>'+ userWeeks()+' Weeks, <br>'+userDays()+' days,<br>'+userHours()+' Hours, <br>'+userMinutes()+' minutes, <br>'+ userSeconds()+'\
-      seconds. <br>' + 'According to your day of birth your next birthday will be on: '+ myNextBirthday()+  '<br> Days in the year: '+ daysIntheCurrentYear); // the name is an id in the profele.html
+      seconds. <br>' + 'According to your day of birth your next birthday will be on: '+ myNextBirthday()+  '<br> Current days in the year: '+ daysIntheCurrentYear); // the name is an id in the profele.html
 
       // 'your next birthday day will be on: '+nextBirtday() 
 
@@ -671,7 +671,7 @@ router.get('/Info', function(req, res, next){
    let password = req.user.password;
   
 
-    return res.redirect('/users/profile?name=Fullname: '+fullname+ '</br>' +' Day+Of+Birth:   '+dob+ '<br>'+'Username: ' +username +'<br>'+'Password: '+ password);
+    return res.redirect('/users/profile?name=Fullname: '+fullname+ '</br>' +' Day+Of+Birth:   '+dob+ '<br>'+'Username: ' +username);
 
       //return res.redirect('/users/Info?name=Fullname: '+fullname);
    }
