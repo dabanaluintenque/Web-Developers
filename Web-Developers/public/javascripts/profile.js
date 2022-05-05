@@ -16,7 +16,18 @@ if(message){
 
         element,
 
-        document.getElementById('message')
+        document.getElementById('message').value
     );
+}
+
+
+function checkName(){
+
+    let x = document.getElementsByName('username');
+
+    let y = document.getElementById('y');
+
+
+    return y.innerHTML = x.value;
 }
 

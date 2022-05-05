@@ -82,7 +82,10 @@ function notLoggedIn(req, res, next){
   }
 }
 
+
 // localhost:3000/users/login
+
+
 
 router.get('/login', notLoggedIn, function(req, res){
 
@@ -148,8 +151,64 @@ router.post('/login',
 
  //}
 
+
+function myNextBirthday(){
+
   
-function nextBirtday(){
+  //let dob = req.user.dob;
+
+
+  let date = new Date();
+  console.log("date: "+ date);
+
+  //let dob = req.user.dob;
+
+  let todayDayOfWeek = date.getDay();
+  console.log('todayDayOfWeek: '+ todayDayOfWeek);
+
+  let currentMonth = date.getMonth();
+  console.log('currentMonth: '+ currentMonth);
+
+  let currentDayOfMonth = date.getDate();
+  console.log('CurrentDayOfMonth: '+currentDayOfMonth);
+
+  let totalDaysOfCurrentMonth = allMonths[currentMonth];
+  console.log('totalDaysOfcurrentMonth: '+ totalDaysOfCurrentMonth);
+
+  let subtraction = totalDaysOfCurrentMonth - currentDayOfMonth;
+  console.log('subtraction: '+ subtraction);
+
+   let Days = 0;
+
+ if(dob.getMonth() > date.getMonth()){
+
+  
+   let value = date.getMonth() + 1;
+   console.log('value: '+ value);
+
+  for(let i = value; i< dob.getMonth(); i++){
+
+   Days +=allMonths[i];
+  
+     }
+      console.log('Days: '+ Days);
+   }
+   
+  let allDays = (Days + dob.getDate()) + (todayDayOfWeek + subtraction);
+  console.log('AllDays: '+ allDays);
+
+
+  let result = allDays % 7;
+
+
+  return allWeeks[result]
+
+}
+ 
+
+
+  
+/*function nextBirtday(){
 
   let test = document.getElementByI('example1');
    const allWeeks=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
@@ -187,7 +246,7 @@ function nextBirtday(){
     
    } 
 
-}
+} */
  function userBirthdayInfo(){
 
 
@@ -250,7 +309,7 @@ if(dob.getMonth() < returnMonthsInstance.getMonth() && dob.getDate()< returnMont
 
 }
 
-else if(dob.getMonth === returnMonthsInstance.getMonth && dob.getDate() > returnMonthsInstance.getDate()){
+else if(dob.getMonth() === returnMonthsInstance.getMonth() && dob.getDate() > returnMonthsInstance.getDate()){
 
  let dates = fullyearDays - dob.getDate() + returnMonthsInstance.getDate();
  //console.log('Dates: '+ dates);
@@ -357,15 +416,115 @@ else if(dob.getMonth()===currentYear.getMonth() && dob.getDate()===currentYear.g
   }
 
 }
-   res.redirect('/users/profile?name=Hey '+ fullname+' according to the date you\
-   have entered. '+dob +' '+userYears()+' years old , and you have been alive for approximately: '+ userMonths()+' months,\
-     '+ userWeeks()+' Weeks, '+userDays()+' days,'+userHours()+' Hours, '+userMinutes()+' minutes, '+ userSeconds()+'\
-      Seconds. ' +' days in of the year: '+ daysIntheCurrentYear); // the name is an id in the profele.html
+   res.redirect('/users/profile?name=Hey '+ fullname+' according to your birthday date\
+  . '+dob +'<br> You are '+userYears()+'  years old <br> You have been alive for approximately: <br> '+ userMonths()+' months,\
+     <br>'+ userWeeks()+' Weeks, <br>'+userDays()+' days,<br>'+userHours()+' Hours, <br>'+userMinutes()+' minutes, <br>'+ userSeconds()+'\
+      seconds. <br>' + 'According to your day of birth your next birthday will be on: '+ myNextBirthday()+  '<br> Days in the year: '+ daysIntheCurrentYear); // the name is an id in the profele.html
 
       // 'your next birthday day will be on: '+nextBirtday() 
 
  });
 
+// working in check next birthday start
+
+router.get('/nextBirthday', function(req, res, next){
+
+  res.sendFile(path.join(__dirname, '..','public','nextBirthday.html'));
+});
+
+
+ // months
+ let currentDayOfYear =0;
+   
+   let allMonths = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+   allMonths[0] = 31;
+   allMonths[1] = 28;
+   allMonths[2] = 31;
+   allMonths[3] = 30;
+   allMonths[4] = 31;
+   allMonths[5] = 30;
+   allMonths[6] = 31;
+   allMonths[7] = 31;
+   allMonths[8] = 30;
+   allMonths[9] = 31;
+   allMonths[10] = 30;
+   allMonths[11] = 31;
+
+
+  // Days of the week 
+   const allWeeks=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
+  
+
+router.post('/nextBirthday', function(req, res, next){
+
+   let do1 = req.user.dob;
+
+  //let dob = req.user.dob;
+
+  let fullname = req.user.fullname;
+
+  /*function myNextBirthday(){
+
+  
+  let dob = req.user.dob;
+
+  return dob.getDate();
+
+  let date = new Date();
+  console.log("date: "+ date);
+
+  //let dob = req.user.dob;
+
+  let todayDayOfWeek = date.getDay();
+  console.log('todayDayOfWeek: '+ todayDayOfWeek);
+
+  let currentMonth = date.getMonth();
+  console.log('currentMonth: '+ currentMonth);
+
+  let currentDayOfMonth = date.getDate();
+  console.log('CurrentDayOfMonth: '+currentDayOfMonth);
+
+  let totalDaysOfCurrentMonth = allMonths[currentMonth];
+  console.log('totalDaysOfcurrentMonth: '+ totalDaysOfCurrentMonth);
+
+  let subtraction = totalDaysOfCurrentMonth - currentDayOfMonth;
+  console.log('subtraction: '+ subtraction);
+
+   let Days = 0;
+
+ if(dob.getMonth() > date.getMonth()){
+
+  
+   let value = date.getMonth + 1;
+   console.log('value: '+ value);
+
+  for(let i = value; i< dob.getMonth; i++){
+
+   Days +=allMonths[i];
+   console.log('Days: '+ Days);
+     }
+   }
+  let allDays = (Days + dob.getDate()) + (todayDayOfWeek + subtraction);
+  console.log('AllDays: '+ allDays);
+
+  let result = allDays % 7;
+
+ console.log('result: '+ result);
+  return allWeeks[result]; */
+ // }
+  let d = new Date();
+  let x = req.user.dob;
+  
+
+  res.redirect('/users/nextBirthday?dob=Hey '+ fullname +' according to your day of birth: '+ x.getFullYear())
+
+
+}); 
+
+
+
+// end
  // sign up get
 
  router.get('/signup', function(req, res){
@@ -411,7 +570,7 @@ else if(dob.getMonth()===currentYear.getMonth() && dob.getDate()===currentYear.g
        console.log('an spl error');
        next(err);
      }
-     else if(result.rowCount.length > 0){
+     else if(result.rows.length > 0){
 
        console.log("There a user with the same name");
 
@@ -540,30 +699,34 @@ router.get('/TimeManagement', function(req, res, next){
 res.sendFile(path.join(__dirname,'..','public','TimeManagement.html'));
 });
 
-/*function newDate(req, res, next){
+function newDate(req, res, next){
 
-  //var salt = bcrypt.genSaltSync(10);
-  //var screentime= (req.body.password);
 
-  client.query('INSERT INTO userstime (username,day,screentime,workout,reading,selfcare,sleep,pray,fun,work) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)',[ req.body.username,req.body.day, req.body.screentime,req.body.workout,req.body.reading,req.body.selfcare,req.body.sleep,req.body.pray,req.body.fun,req.body.work], function(err, result){
+ client.query('INSERT INTO userstime (username,day,screentime,workout,reading,selfcare,sleep,pray,fun,work, description) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11)',[ req.body.username,req.body.day, req.body.screentime,req.body.workout,req.body.reading,req.body.selfcare,req.body.sleep,req.body.pray,req.body.fun,req.body.work, req.body.description], function(err, result){
+      
+  //client.query('INSERT INTO userstime (username,day,screentime,workout,reading,selfcare,sleep,pray,fun,work) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)',[ req.body.username,req.body.day, req.body.screentime,req.body.workout,req.body.reading,req.body.selfcare,req.body.sleep,req.body.pray,req.body.fun,req.body.work], function(err, result){
 
     if(err){
 
     console.log('query insert error');
     return next(err);
     }
-    console.log('Got it')
-    res.redirect('/users/timeoverView?message="Thank+you+for+share+your+time+with+us!');
+    console.log('Great job checking your management.')
+    res.redirect('/users/TimeManagement?message="Thank+you+for+share+your+time+with+us!');
   });
 } 
-*/
+
 
 
 // post TimeManagement
 
 router.post('/TimeManagement', function(req, res, next){
 
-  client.query('SELECT * FROM userstime WHERE username=$1',[req.body.username], function(err, result){
+  //let fullname = req.user.fullname;
+   //res.redirect('/users/TimeManagement?message=Hey '+ fullname);
+
+  client.query('SELECT * FROM usersinfo WHERE username=$1',[req.body.username], function(err, result){
+
 
     if(err){
 
@@ -571,38 +734,30 @@ router.post('/TimeManagement', function(req, res, next){
       next(err);
     }
    if(result.rows.length > 0){
-     client.query('INSERT INTO userstime (username,day,screentime,workout,reading,selfcare,sleep,pray,fun,work, description) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11)',[ req.body.username,req.body.day, req.body.screentime,req.body.workout,req.body.reading,req.body.selfcare,req.body.sleep,req.body.pray,req.body.fun,req.body.work, req.body.description], function(err, result){
-      
-      if(err){
 
-        console.log('unable to INSERT');
-        next(err);
+     console.log('this user exists in userinfo database');
+     newDate(req, res, next);
+
       }
-      console.log('Got it')
-    res.redirect('/users/TimeManagement?message="Thank+you+for+share+your+time+with+us!');
+      else{
+
+         console.log('Theres no one with this user name in Usersinfo')
+    res.redirect('/users/TimeManagement?message=+There+is+no+one+with+this+user+name+in+Databae!');
      
-    //console.log('created in the database');
-    //  newDate(req, res, next);
-    });
-  }
-    else{
-  
-     console.log('user does not exist');
-     res.redirect('/users/TimeManagement?message=user+does+not+exist');
-    }
+      }
   });
 });
 
 
 // localhost time overview get
 
-/*
+
 router.get('/timeoverView', function(req, res, next){
 
   res.sendFile(path.join(__dirname,'..','public','timeoverView.html'));
 });
 
-router.get('/timeoverViewOut', function(req, res, next){
+ router.get('/timeoverViewOut', function(req, res, next){
 
   client.query('SELECT * FROM userstime  WHERE username=$1', [req.user.username], function(err, result){
   
@@ -625,8 +780,40 @@ router.get('/timeoverViewOut', function(req, res, next){
       res.redirect('/users/timeoverView?message='+username+'Not in the Database');
     }
   });
-});
-// end */
+}); 
+
+router.post('/timeoverView', function(req, res, next){
+
+
+  let name = req.user.username;
+  client.query('SELECT * FROM userstime  WHERE username=$1', [req.body.username], function(err, result){
+
+    if(err){
+
+      console.log("sql error");
+
+      next(err);
+    }
+    if(result.rows.length > 0){
+
+      console.log('Chek your time')
+
+      res.redirect('/users/timeoverView?message=Welcome '+ name);
+      //res.json(result.rows);
+
+    }
+
+    else{
+
+      console.log('We donot have any information with this username');
+
+      res.redirect('/users/TimeManagement?message=We+do+not+have+any+record+with+this+username')
+    }
+  })
+})
+// end 
+
+
 
 
 module.exports = router;

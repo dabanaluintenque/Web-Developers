@@ -4,6 +4,7 @@ let xhttp = new XMLHttpRequest();
 xhttp.addEventListener('load', success);
 xhttp.addEventListener('error', error);
 xhttp.open("GET", "/users/timeoverViewOut", true);
+//xhttp.open("POST", "/users/timeoverView", true);
 xhttp.send();
 
 
@@ -26,6 +27,7 @@ function success(){
          <td>{row.pray}</td>
          <td>{row.fun}</td>
         <td>{row.work}</td>
+        <td>{row.description}</td>
 
     </tr>
     );
@@ -40,7 +42,7 @@ function success(){
             <table id="createTable">
 
                 <thead>
-                    <tr><th>ID</th><th>Username</th><th>Day</th><th>Screentime</th><th>Workout</th><th>Reading</th><th>Selfcare</th><th>Sleep</th><th>Pray</th><th>Fun</th><th>Work</th></tr>
+                    <tr><th>ID</th><th>Username</th><th>Day</th><th>Screentime</th><th>Workout</th><th>Reading</th><th>Selfcare</th><th>Sleep</th><th>Pray</th><th>Fun</th><th>Work</th><th>Description</th></tr>
                 </thead>
 
                 <tbody>

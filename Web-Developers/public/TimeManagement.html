@@ -25,9 +25,16 @@
                 </strong>
 
                 <br>
-                <script>
+                <!-- <script>
+                    const urlParams = new URLSearchParams(window.location.search);
 
-                </script>
+                    const name = urlParams.get('name');
+
+                    if (name) {
+
+                        document.getElementById('name').innerHTML = name;
+                    }
+                </script>-->
 
 
                 <p> Hello "Name" Please Enter Your Best Guess to see how wisely you spend your time. <br>
@@ -84,7 +91,7 @@
 
                 <p> How you spend your time.</p>
 
-                <form>
+                <form method="post" action="timeoverView">
 
                     <label>Username</label>
                     <input type="text" name="username" placeholder>
@@ -95,7 +102,7 @@
         <a href="/">Back to home page:</a>
 
     </div>
-    <script src="/javascripts/TimeManagement.js" type="text/babel"></scrip >
-</body >
+    <script src="/javascripts/TimeManagement.js" type="text/babel"></script>
+</body>
 
-</html >
+</html>
